@@ -152,5 +152,53 @@ dc2f6fe HEAD@{3}: commit: 修改readme文件，增添git status与git diff命令
 
 ```
 
+> **删除操作**
+
+- 场景1. 需要删除一个已经提交给版本库的文件
+
+```
+[root@localhost learngit]# git add test.txt
+[root@localhost learngit]# git commit -m '测试文件'
+[master b675ec3] 测试文件
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test.txt
+
+// 直接删除文件
+
+[root@localhost learngit]# rm test.txt 
+rm：是否删除普通文件 "test.txt"？y
+[root@localhost learngit]#
+
+
+// 删除版本库中所提交的test文件
+
+[root@localhost learngit]# git rm test.txt
+rm 'test.txt'
+[root@localhost learngit]# git commit -m 'remove test.txt'
+[master 6fd9a57] remove test.txt
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 test.txt
+```
+
+- 场景2. 误删文件，需要使用git checkout -- file进行恢复
+
+```
+[root@localhost learngit]# git checkout -- test.txt
+[root@localhost learngit]# ls
+readme.txt  test.txt
+```
+
+- 场景3. 误删版本库中所提交的文件，需要使用git reset --hard xxx进行跳转版本
+```
+[root@localhost learngit]# git reset --hard HEAD^
+HEAD 现在位于 b675ec3 测试文件
+[root@localhost learngit]# ls
+readme.txt  test.txt
+
+```
+
+
+
+
 
 
