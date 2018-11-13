@@ -296,3 +296,76 @@ Fast-forward
 * master
 ```
 
+- 处理冲突
+```
+[root@localhost learngit]# git checkout -b feature1
+切换到一个新分支 'feature1'
+[root@localhost learngit]# vim test.txt 
+[root@localhost learngit]# git add test.txt
+[root@localhost learngit]# git commit -m 'Feature1 commit'
+[feature1 edef47f] Feature1 commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[root@localhost learngit]# git checkout master
+切换到分支 'master'
+您的分支领先 'origin/master' 共 3 个提交。
+  （使用 "git push" 来发布您的本地提交）
+[root@localhost learngit]# git branch
+  feature1
+* master
+[root@localhost learngit]# vim test.txt 
+[root@localhost learngit]# git add test.txt
+[root@localhost learngit]# git commit -m 'Master commit'
+[master 1356c49] Master commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[root@localhost learngit]# git merge feature1 
+自动合并 test.txt
+冲突（内容）：合并冲突于 test.txt
+自动合并失败，修正冲突然后提交修正的结果。
+[root@localhost learngit]# git status
+# 位于分支 master
+# 您的分支领先 'origin/master' 共 4 个提交。
+#   （使用 "git push" 来发布您的本地提交）
+#
+# 您有尚未合并的路径。
+#   （解决冲突并运行 "git commit"）
+#
+# 未合并的路径：
+#   （使用 "git add <file>..." 标记解决方案）
+#
+#	双方修改：     test.txt
+#
+# 未跟踪的文件:
+#   （使用 "git add <file>..." 以包含要提交的内容）
+#
+#	gitkills/
+修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
+[root@localhost learngit]# vim test.txt 
+[root@localhost learngit]# git add test.txt
+[root@localhost learngit]# git commit -m 'conflict fixed'
+[master 7172349] conflict fixed
+[root@localhost learngit]# git log --graph --pretty=oneline --abbrev-commit
+*   7172349 conflict fixed
+|\  
+| * edef47f Feature1 commit
+* | 1356c49 Master commit
+|/  
+* b3676fe 添加了分支操作的命令
+* 13d5b65 分支上的操作
+* c7a82b4 克隆操作
+* f327ed0 添加了连接远程仓库的操作
+* eaa2d66 添加了关于删除操作情况的处理
+* b675ec3 测试文件
+* d196d53 git checkoutt更新
+* 152c4e9 添加了git checkout --file命令
+* d51aafc 添加了git reflog命令
+* 95490bf 修改readme文件，增添git log与git reset命令
+* dc2f6fe 修改readme文件，增添git status与git diff命令
+* 5b253c4 wrote a readme file
+```
+
+> **git log --graph**
+
+- 作用
+
+查看分支合并图
+
