@@ -244,8 +244,29 @@ NewText.txt  README.md
 
 ```
 
+> **分支操作**
 
+- 分支作用
 
+在不影响master分支的前提下，完成其他的任务，或者在修复master分支上的BUG与团队开发模块式用处极大
+
+- 创建分支
+
+```
+[root@localhost learngit]# git checkout -b dev
+切换到一个新分支 'dev'
+
+// 相当于使用以下两条语句
+[root@localhost learngit]# git branch dev   // 创建当前分支
+[root@localhost learngit]# git checkout dev // 切换当前分支
+```
+
+- 查看当前分支
+```
+[root@localhost learngit]# git branch
+* dev
+  master
+```
 
 
 
