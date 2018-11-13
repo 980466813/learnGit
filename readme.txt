@@ -220,7 +220,29 @@ To https://github.com/980466813/learngit.git
 分支 master 设置为跟踪来自 origin 的远程分支 master。
 ```
 
+> **git clone**
 
+- 作用
+
+从远程服务器克隆项目到本地
+
+- 代码
+
+```
+[root@localhost learngit]# git clone https://github.com/980466813/gitkills.git
+正克隆到 'gitkills'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), done.
+[root@localhost learngit]# ls
+gitkills  readme.txt  test.txt
+[root@localhost learngit]# cd gitkills/
+[root@localhost gitkills]# ls
+NewText.txt  README.md
+
+```
 
 
 
