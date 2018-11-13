@@ -268,5 +268,31 @@ NewText.txt  README.md
   master
 ```
 
+- 合并分支
+```
+// 合并分支前，分支上的操作是不会影响master分支
+[root@localhost learngit]# git add readme.txt
+[root@localhost learngit]# git commit -m "分支上的操作"
+[dev 13d5b65] 分支上的操作
+ 1 file changed, 21 insertions(+)
+[root@localhost learngit]# git checkout master
+切换到分支 'master'
+您的分支领先 'origin/master' 共 1 个提交。
+  （使用 "git push" 来发布您的本地提交）
+[root@localhost learngit]# vim readme.txt 
+[root@localhost learngit]# git merge dev
+更新 c7a82b4..13d5b65
+Fast-forward
+ readme.txt | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
+```
+
+- 删除分支
+```
+[root@localhost learngit]# git branch -d dev
+已删除分支 dev（曾为 13d5b65）。
+[root@localhost learngit]# git branch
+* master
+```
 
