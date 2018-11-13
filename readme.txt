@@ -18,3 +18,7 @@ Study Git
 4. git reset --hard HEAD^
 
 用于回退到上个版本 HEAD^代表上个版本，同理上上个版本就是HEAD^^,往前n个版本则可以写为HEAD~100
+
+5. git reflog
+
+用于记录每一次命令
