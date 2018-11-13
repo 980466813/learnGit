@@ -369,3 +369,61 @@ Fast-forward
 
 查看分支合并图
 
+
+> **暂存工作区**
+
+- 作用
+
+将工作区的改动进行暂时存储，等以后在恢复
+
+- 暂存工作区
+
+```
+[root@localhost learngit]# git stash
+Saved working directory and index state WIP on master: d39274c 添加了处理冲突的操作
+HEAD 现在位于 d39274c 添加了处理冲突的操作
+[root@localhost learngit]# git status
+# 位于分支 master
+# 未跟踪的文件:
+#   （使用 "git add <file>..." 以包含要提交的内容）
+#
+#	gitkills/
+提交为空，但是存在尚未跟踪的文件（使用 "git add" 建立跟踪）
+```
+
+- 查看暂存区
+
+```
+[root@localhost learngit]# git stash list
+stash@{0}: WIP on master: d39274c 添加了处理冲突的操作
+```
+
+- 恢复暂存修改
+
+```
+# 有两种方式
+```
+[root@localhost learngit]# git stash apply # 使用后，暂存区的内容恢复到源文件，但暂存区的内容并未删除
+[root@localhost learngit]# git stash drop # 采用该句命令进行删除暂存区内容
+丢弃了 refs/stash@{0} (e1a2ea89639bd0330c8876cc2402e56817951596)
+
+
+# 或者直接采用以下命令
+[root@localhost learngit]# git stash pop
+# 位于分支 master
+# 尚未暂存以备提交的变更：
+#   （使用 "git add <file>..." 更新要提交的内容）
+#   （使用 "git checkout -- <file>..." 丢弃工作区的改动）
+#
+#	修改：      readme.txt
+#
+# 未跟踪的文件:
+#   （使用 "git add <file>..." 以包含要提交的内容）
+#
+#	gitkills/
+修改尚未加入提交（使用 "git add" 和/或 "git commit -a"）
+丢弃了 refs/stash@{0} (f401b5d776ddc6b5b028c512d886bb173286d0a8)
+```
+
+
+```
