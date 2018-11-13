@@ -1,1 +1,1 @@
-This is a new master changed test.txt
+This is a new master and feature1 together changed test.txt
