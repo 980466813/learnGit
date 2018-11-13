@@ -197,6 +197,31 @@ readme.txt  test.txt
 
 ```
 
+> **远程仓库**
+
+- 代码
+```
+[root@localhost learngit]# git remote add origin https://github.com/980466813/learngit.git
+[root@localhost learngit]# git push -u origin master
+Username for 'https://github.com': 980466813@qq.com
+Password for 'https://980466813@qq.com@github.com':
+Counting objects: 24, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (17/17), done.
+Writing objects: 100% (24/24), 3.82 KiB | 0 bytes/s, done.
+Total 24 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), done.
+remote: 
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/980466813/learngit/pull/new/master
+remote: 
+To https://github.com/980466813/learngit.git
+ * [new branch]      master -> master
+分支 master 设置为跟踪来自 origin 的远程分支 master。
+```
+
+
+
 
 
 
