@@ -522,3 +522,18 @@ v1.0
 [root@localhost learngit]# git show v1.0
 ```
 
+- 删除标签
+```
+[root@localhost learngit]# git tag -d v1.0
+
+// 若标签已经推送至远程服务器，则需要以下办法删除
+[root@localhost learngit]# git push origin :refs/tags/v1.0
+```
+
+- 推送标签
+```
+[root@localhost learngit]# git push origin v1.0
+
+// 也可以一次性推送所有本地标签
+[root@localhost learngit]# git push origin --tags
+```
