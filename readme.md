@@ -478,5 +478,47 @@ If you wish to set tracking information for this branch you can do so with:
 [root@localhost learngit]# git branch --set-upstream-to=origin/dev dev
 ```
 
+> **标签**
 
+- 为提交注释标签
+```
+// 为最近的一次提交打标签
+[root@localhost learngit]# git tag v1.0
+
+// 若需要为历史提交打上标签
+[root@localhost learngit]# git log -pretty=oneline --abbrev-commit
+12a631b (HEAD -> master, tag: v1.0, origin/master) merged bug fix 101
+4c805e2 fix bug 101
+e1e9c68 merge with no-ff
+f52c633 add merge
+cf810e4 conflict fixed
+5dc6824 & simple
+14096d0 AND simple
+b17d20e branch test
+d46f35e remove test.txt
+b84166e add test.txt
+519219b git tracks changes
+e43a48b understand how stage works
+1094adb append GPL
+e475afc add distributed
+eaadf4e wrote a readme file
+
+[root@localhost learngit]# git tag v0.9 f52c633
+
+// 创建一个具有说明文字的标签
+[root@localhost learngit]# git tag -a v0.9 -m 'version v0.9 released' 1049abd
+```
+
+- 查看标签
+```
+// 注：标签顺序是按照字母排序
+[root@localhost learngit]# git tag
+v0.9
+v1.0
+```
+
+- 查看某个标签信息
+```
+[root@localhost learngit]# git show v1.0
+```
 
