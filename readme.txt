@@ -294,6 +294,10 @@ Fast-forward
 已删除分支 dev（曾为 13d5b65）。
 [root@localhost learngit]# git branch
 * master
+
+// 也可以使用强制删除分支
+[root@localhost learngit]# git branch -D feature-vulcan
+Deleted branch feature-vulcan (was 287773e).
 ```
 
 - 处理冲突
@@ -363,6 +367,8 @@ Fast-forward
 * 5b253c4 wrote a readme file
 ```
 
+
+
 > **git log --graph**
 
 - 作用
@@ -376,7 +382,7 @@ Fast-forward
 
 将工作区的改动进行暂时存储，等以后在恢复
 
-- 暂存工作区
+- 临时存储工作区内容
 
 ```
 [root@localhost learngit]# git stash
@@ -391,7 +397,7 @@ HEAD 现在位于 d39274c 添加了处理冲突的操作
 提交为空，但是存在尚未跟踪的文件（使用 "git add" 建立跟踪）
 ```
 
-- 查看暂存区
+- 查看暂存区列表
 
 ```
 [root@localhost learngit]# git stash list
@@ -402,11 +408,10 @@ stash@{0}: WIP on master: d39274c 添加了处理冲突的操作
 
 ```
 # 有两种方式
-```
+
 [root@localhost learngit]# git stash apply # 使用后，暂存区的内容恢复到源文件，但暂存区的内容并未删除
 [root@localhost learngit]# git stash drop # 采用该句命令进行删除暂存区内容
 丢弃了 refs/stash@{0} (e1a2ea89639bd0330c8876cc2402e56817951596)
-
 
 # 或者直接采用以下命令
 [root@localhost learngit]# git stash pop
@@ -425,5 +430,53 @@ stash@{0}: WIP on master: d39274c 添加了处理冲突的操作
 丢弃了 refs/stash@{0} (f401b5d776ddc6b5b028c512d886bb173286d0a8)
 ```
 
+> **远端分支操作**
+
+- 查看远程库的信息
 
 ```
+[root@localhost learngit]# git remote
+origin
+
+// 或者使用git remote -v显示抓取和推送的origin地址，如果没有推送权限，则看不到push的地址
+[root@localhost learngit]# git remote -v
+origin	https://github.com/980466813/learngit.git (fetch)
+origin	https://github.com/980466813/learngit.git (push)
+``` 
+
+- 推送分支
+```
+// 推送远程主干
+[root@localhost learngit]# git push origin master
+
+
+// 推送远程分支
+[root@localhost learngit]# git push origin <分支名> // 其中origin代表远程仓库的默认名
+
+```
+
+- 抓取远程分支
+```
+[root@localhost learngit]# git checkout -b dev origin/dev
+
+// 当提交远程分支代码时，可能会发生冲突，这时则需要先抓取远程分支的代码，在本地合并，解决冲突后，再次提交。
+
+// 处于dev分支下时，使用git pull 抓取远程分支代码
+[root@localhost learngit]# git pull 
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> dev
+
+// 此时若发生git pull也失败了，则原因为没有制定本地dev分支与远程分支origin/dev分支的链接，使用以下命令设置dev与origin/dev的链接：
+
+[root@localhost learngit]# git branch --set-upstream-to=origin/dev dev
+```
+
+
+
