@@ -1,1 +1,4 @@
 This is a new master and feature1 together changed test.txt
+
+3b9045017fb90269590ea0009e6a030438a5e765 提交1
+f19cbc818749ecbec7a6525a660b7eb32ccf5952 无用的提交
